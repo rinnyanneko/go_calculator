@@ -1,7 +1,8 @@
 package main
+
 import "fmt"
 
-func main(){
+func main() {
 	fmt.Println("Author: rinnyanneko")
 	fmt.Println("This program is for practicing Golang")
 	fmt.Println("There might be many bugs in this program, Please don't use it for production")
@@ -18,27 +19,30 @@ func main(){
 		if choice == 5 {
 			run = false
 			break
-		}else{
+		} else {
 			fmt.Println("Please input the first number")
 			fmt.Scanln(&num1)
 			fmt.Println("Please input the second number")
 			fmt.Scanln(&num2)
-			numPtr1=&num1
-			numPtr2=&num2
+			num1Ptr = &num1
+			num2Ptr = &num2
 			calculate(choice, num1Ptr, num2Ptr)
+			fmt.Println("The result is", num1)
 		}
+	}
 }
+
 func calculate(choice int, a *float64, b *float64) {
 	switch choice {
-		case 1:
-			*a+=*b
-		case 2:
-			*a-=*b
-		case 3:
-			*a*=*b
-		case 4:
-			*a/=*b
-		default:
-			fmt.Println("Please choose the correct operation")
+	case 1:
+		*a += *b
+	case 2:
+		*a -= *b
+	case 3:
+		*a *= *b
+	case 4:
+		*a /= *b
+	default:
+		fmt.Println("Please choose the correct operation")
 	}
 }
